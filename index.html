@@ -24,7 +24,25 @@
             aria-label="Generated Password"
           ></textarea>
         </div>
-        <div class="card-footer">
+        <form class="card-footer">
+          <form id="selectors">
+            
+            <!-- setting up length of password and creating min and max inputs -->
+            
+            <label for="len">Length</label>
+            <input type="num" id="len" value="" min="8" max="128" />
+            
+            <!-- asking if user would like to use numbers -->
+            
+            <label for="num">Click To Include Numbers</label>
+            <input type="checkbox" id="num" checked />
+            
+            <!-- asking if user would like to use symbols -->
+            
+            <label for="syms">Click To Include Symbols</label>
+            <input type="checkbox" id="syms" checked>   
+          
+          </form>
           <button id="generate" class="btn">Generate Password</button>
         </div>
       </div>
