@@ -11,26 +11,41 @@ const incnum = document.getElementById("num");
 const incsyms = document.getElementById("syms");
 
 //testing varables 
-console.log(alpha)
-console.log(num)
-console.log(syms)
+//console.log(alpha)
+//console.log(num)
+//console.log(syms)
+
 
 
 // Get references to the #generate element
-//var generateBtnn = document.querySelector("#generate");
-
-// Write password to the #password input
-//function writePassword() {
-  //var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
-
-  //passwordText.value = password;
-
-//};
-
-//var passinfo = {
-  //length: passlen(),
-//}
+const generateBtn = document.getElementById("generate")
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", () => {
+  
+  let characters = alpha;
+  
+  incnum.checked ? (characters += num) : "";
+  
+  incsyms.checked ? (characters += syms) : "";
+  
+  passwordTxt.value = generatePassword(len.value, characters);
+});
+
+//generate password based on usewr input  
+const generatePassword = (length, characters) => {
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    password += characters.charAt(
+      Math.floor(Math.random() * characters.length)
+    );
+    if (length < 8 || length > 128){
+      length = alert("Your password length must be between 8 and 128, please try again.")
+    }
+   
+  }
+  
+  //return pw
+  return password;
+};
+
